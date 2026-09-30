@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Finova AI — Loan Eligibility Checker</title>
+  <meta name="description" content="AI-powered BFSI financial decision support dashboard with loan eligibility, credit analysis, EMI calculation and financial tips.">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="bg-orb orb-a"></div><div class="bg-orb orb-b"></div>
+  <header class="topbar">
+    <div class="brand"><div class="brand-mark">F</div><div><strong>Finova AI</strong><span>BFSI Decision Support</span></div></div>
+    <div class="status-pill"><i></i> Secure workspace</div>
+  </header>
+
+  <main class="container">
+    <section class="hero glass">
+      <div><span class="eyebrow">AI-POWERED FINANCIAL TOOLKIT</span><h1>Make financial decisions with <span>clarity.</span></h1><p>Check estimated loan eligibility, understand credit health, calculate EMI, and get responsible financial guidance in one responsive dashboard.</p></div>
+      <div class="hero-stat"><b>4</b><span>Core tools</span></div>
+    </section>
+
+    <nav class="tabs glass" aria-label="Tools">
+      <button class="tab active" data-target="eligibility">Loan Eligibility</button><button class="tab" data-target="credit">Credit Analyzer</button><button class="tab" data-target="emi">EMI Calculator</button><button class="tab" data-target="tips">AI Financial Tips</button>
+    </nav>
+
+    <section id="eligibility" class="panel active-panel">
+      <div class="section-heading"><div><span class="eyebrow">01 · LOAN ASSESSMENT</span><h2>Loan Eligibility Checker</h2><p>Enter basic financial details to receive an educational estimate. Final approval always depends on the lender.</p></div></div>
+      <form id="loanForm" class="glass form-grid">
+        <label>Full name<input name="name" required placeholder="e.g. Rahul Sharma"></label>
+        <label>Age<input name="age" type="number" min="18" max="80" required placeholder="25"></label>
+        <label>Monthly income (₹)<input name="income" type="number" min="0" required placeholder="50000"></label>
+        <label>Credit score<input name="creditScore" type="number" min="300" max="900" required placeholder="750"></label>
+        <label>Employment<select name="employment"><option>Salaried</option><option>Government Employee</option><option>Self Employed</option><option>Student</option><option>Other</option></select></label>
+        <label>Existing monthly EMI (₹)<input name="existingEmi" type="number" min="0" value="0"></label>
+        <label>Requested loan amount (₹)<input name="loanAmount" type="number" min="0" required placeholder="500000"></label>
+        <div class="form-actions"><button class="primary" type="submit">Check Eligibility <span>→</span></button><button class="secondary" type="reset">Clear</button></div>
+      </form>
+      <div id="eligibilityResult" class="result-grid hidden"></div>
+    </section>
+
+    <section id="credit" class="panel">
+      <div class="section-heading"><div><span class="eyebrow">02 · CREDIT HEALTH</span><h2>Credit Score Analyzer</h2><p>Understand the broad credit-score band and practical habits that can support healthier credit.</p></div></div>
+      <div class="glass calculator-card"><label>Credit score<input id="creditInput" type="number" min="300" max="900" value="750"></label><button class="primary" id="creditBtn">Analyze Score →</button></div>
+      <div id="creditResult" class="result-grid hidden"></div>
+    </section>
+
+    <section id="emi" class="panel">
+      <div class="section-heading"><div><span class="eyebrow">03 · REPAYMENT PLANNING</span><h2>EMI Calculator</h2><p>Estimate monthly repayment, total payment and interest using the standard reducing-balance EMI formula.</p></div></div>
+      <div class="glass form-grid three"><label>Loan amount (₹)<input id="emiPrincipal" type="number" min="1" value="500000"></label><label>Annual interest (%)<input id="emiRate" type="number" min="0" step="0.1" value="10"></label><label>Tenure (months)<input id="emiMonths" type="number" min="1" value="60"></label><div class="form-actions"><button class="primary" id="emiBtn">Calculate EMI →</button></div></div>
+      <div id="emiResult" class="result-grid hidden"></div>
+    </section>
+
+    <section id="tips" class="panel">
+      <div class="section-heading"><div><span class="eyebrow">04 · AI GUIDANCE</span><h2>AI Financial Tips</h2><p>Get general financial education powered by Claude when configured, with a safe local fallback when it is not.</p></div></div>
+      <div class="glass form-grid three"><label>Age<input id="tipAge" type="number" value="25"></label><label>Monthly income (₹)<input id="tipIncome" type="number" value="50000"></label><label>Credit score<input id="tipCredit" type="number" value="750"></label><label>Employment<select id="tipEmployment"><option>Salaried</option><option>Government Employee</option><option>Self Employed</option><option>Student</option></select></label><label>Existing EMI (₹)<input id="tipEmi" type="number" value="0"></label><div class="form-actions"><button class="primary" id="tipsBtn">Generate Tips ✦</button></div></div>
+      <div id="tipsResult" class="glass ai-box hidden"></div>
+    </section>
+
+    <section class="glass privacy"><div class="lock">⌁</div><div><strong>Privacy & transparency</strong><p>Do not enter passwords, card numbers, bank credentials, Aadhaar numbers, or other highly sensitive identifiers. This demo uses financial fields only. Without Google Sheets credentials, submitted records are stored locally in <code>data/applications.jsonl</code>.</p></div></section>
+  </main>
+  <footer>Finova AI · Educational project · Estimated results are not loan approvals.</footer>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
