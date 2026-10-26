@@ -1,6 +1,7 @@
 # Finova AI — Loan Eligibility Checker
 
 A ready-to-run BFSI web project implementing the requirements from the supplied project brief.
+
 documentation:
 https://docs.google.com/document/d/1qcR76HKJyrg9_agpuQ2rUgQHpmGLj-C7/edit?usp=sharing&ouid=102140287638483934238&rtpof=true&sd=true
 
